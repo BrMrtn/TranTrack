@@ -1,10 +1,12 @@
 /**
  * If the user is authenticated, call next, otherwise redirect to /
  */
-const requireOption = require('../requireOption');
 
-module.exports = function (objectrepository) {
+module.exports = function (objectRepository) {
     return function (req, res, next) {
-        next();
+        if (typeof req.session.userid === 'undefined') {
+            return res.redirect('/');
+        }
+        return next();
     };
 };

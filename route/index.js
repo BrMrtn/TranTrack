@@ -1,5 +1,5 @@
 const authMW = require('../middleware/auth/authMW');
-const checkPasswordMW = require('../middleware/auth/checkPasswordMW');
+const checkPasswordMW = require('../middleware/auth/checkLoginMW');
 const logoutMW = require('../middleware/auth/logoutMW');
 const renderMW = require('../middleware/renderMW');
 const delTransactionMW = require('../middleware/transaction/delTransactionMW');
