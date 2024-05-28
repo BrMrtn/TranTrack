@@ -1,0 +1,46 @@
+Felhasználók és tranzakciók
+ - index.html - login form
+ - register.html - regisztrációs form
+ - transactions.html - tranzakció listázás (táblázat), edit + delete, új tranzakció gomb
+ - bankview.html - felhasználó listázás (táblázat), delete felhasználó gomb
+
+Routing
+
+renderMW
+
+middleware/auth
+	checkPasswordMW.js - ha a jelszó helyes, redirect a /:userid-re
+	authMW.js
+	logoutMW.js
+
+middleware/transaction
+	delTransactionMW.js
+	getTransactionsMW.js - egy felhasználóhoz tartozó tranzakciók lekérése
+	saveTransactionMW.js
+
+middleware/user
+	delUserMW.js
+	getUsersMW.js - az összes felhasználó lekérése
+	saveUserMW.js
+
+
+POST / - index.html
+	checkPasswordMW
+	renderMW(index.html)
+
+POST /register - register.html, regisztráció után redirect a login screen-re (/)
+	saveUserMW
+	renderMW(register.html)
+
+GET, POST /:userid - transactions-html
+	authMW
+	getTransactionsMW
+	delTramsactionMW
+	saveTransactionMW
+	renderMW(transactions.html)
+
+GET, POST /admin - bankview.html
+	authMW
+	getUsersMW
+	delUsersMW
+	renderMW(bankview.html)

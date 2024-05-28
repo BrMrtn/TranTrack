@@ -1,0 +1,24 @@
+<%- include('header') %>
+    <div class="container">
+        <h1 class="title">Banki felület</h1>
+        <table>
+            <tr>
+                <th>Név</th>
+                <th>email-cím</th>
+                <th></th>
+            </tr>
+            <% users.forEach(function(oneUser) { %>
+                <tr>
+                    <td>oneUser.name</td>
+                    <td>oneUser.email</td>
+                    <td><input type="checkbox" name="checkbox_del" id="0"></td>
+                </tr>
+            <% }); %>
+        </table>
+        
+        <form action="">
+            <!--TODO-->
+            <input type="submit" value="Kijelölt felhasználók törlése" class="button">
+        </form>
+    </div>
+<%- include('footer') %>

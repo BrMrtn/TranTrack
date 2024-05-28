@@ -1,0 +1,99 @@
+.index-container{
+    width: 700px;
+    height: 490px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 5px 5px 10px black;
+    padding-top: 50px;
+}
+
+.register-container{
+    width: 700px;
+    height: 640px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 5px 5px 10px black;
+    padding-top: 50px;
+}
+
+.transactions-container{
+    width: 900px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 5px 5px 10px black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.bankview-container{
+    width: 900px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 5px 5px 10px black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+form{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+fieldset{
+    width: 250px;
+    padding: 100px, 10px, 10px, 10px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
+
+.input{
+    border: none;
+    width: 24rem;
+    height: 1.5rem;
+    font-size: medium;
+}
+
+.button{
+    margin: 20px;
+    padding: 15px;
+    border: solid black;
+    background-color: aliceblue;
+    border-radius: 15px;
+    font-size: medium;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 30px;
+}
+
+img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.addTransaction{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTransactionButton{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-size: 50px;
+    color: green;
+    margin-left: 10px;
+}
+
+.usersTable tr td:nth-child(1), .usersTable tr th:nth-child(1){
+    padding-right: 120px;
+    text-align: left;
+}
+
+.usersTable tr td:nth-child(2), .usersTable tr th:nth-child(2){
+    text-align: right;
+}
