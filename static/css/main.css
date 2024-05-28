@@ -1,6 +1,6 @@
 .index-container{
     width: 700px;
-    height: 490px;
+    height: 500px;
     margin: auto;
     text-align: center;
     box-shadow: 5px 5px 10px black;
@@ -96,4 +96,12 @@ img{
 
 .usersTable tr td:nth-child(2), .usersTable tr th:nth-child(2){
     text-align: right;
+}
+
+.error{
+    color: darkred;
+    background-color: rgb(250, 215, 218);
+    border: 1px solid darkred;
+    padding: 10px;
+    margin: 0 200px 10px 200px;
 }

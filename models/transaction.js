@@ -15,7 +15,11 @@ const Transaction = db.model('Transaction', {
     type: String,
     default: "opcionális"
   },
-  comment: String
+  comment: String,
+  _userid: {
+    type: Schema.Types.ObjectId,
+    ref: 'User' 
+  }
 });
 
 module.exports = Transaction;

@@ -1,31 +1,29 @@
 const express = require('express');
 const app = express();
-const session = express('express-session');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded());
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 app.use(express.static('static'));
 
 app.use(session({
-    secret: 'secret'
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 }));
 
 //Include routing
 require('./route/index')(app);
-
-app.use(function (req, res, next) {
-    res.tpl = {};
-    res.tpl.error = [];
-    return next();
-});
 
 app.use((err, req, res, next) => {
     res.end('There is a problem!');
     console.log(err);
 });
 
-const server = app.listen(3000, function () {
+app.listen(3000, function () {
     console.log("Running on port 3000");
 });

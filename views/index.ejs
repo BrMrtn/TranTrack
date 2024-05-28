@@ -1,9 +1,8 @@
 <%- include('header') %>
-<body>
 <div class="index-container">
     <h1 class="title">Üdvözöljük a TranTrack oldalán!</h1>
     <h2 class="subtitle">Az oldal használatához kérjük, jelentkezzen be:</h2>
-    <form action="" class="index_form">
+    <form method="POST" class="index_form">
         <fieldset class="index-fieldset">
             <legend>e-mail</legend>
             <input type="text" class="input" id="email" name="email" placeholder="pelda@gmail.com">
@@ -14,6 +13,7 @@
         </fieldset>
         <input type="submit" class="button" value="Bejelentkezés">
     </form>
-    <a href="register.html">Amennyiben még nincsen fiókja, itt regisztrálhat</a>
+    <%- include('errormessage') %>
+    <a href="/register">Amennyiben még nincsen fiókja, itt regisztrálhat</a>
 </div>
-
+<%- include('footer') %>
