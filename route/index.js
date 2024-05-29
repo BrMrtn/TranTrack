@@ -27,7 +27,7 @@ module.exports = function (app) {
         checkRegistrationMW(objRepo),
         renderMW(objRepo, 'register'));
 
-    app.use('/:userid/:transactionid/del',
+    app.get('/:userid/:transactionid/del',
         authMW(objRepo),
         getUserMW(objRepo),
         getTransactionMW(objRepo),
@@ -36,14 +36,14 @@ module.exports = function (app) {
             return res.redirect('/');
         });
 
-    /*app.use('/:userid/:transactionid/update',
+    app.use('/update/:userid/:transactionid',
         authMW(objRepo),
         getUserMW(objRepo),
         getTransactionMW(objRepo),
         saveTransactionMW(objRepo),
-        renderMW(objRepo, 'transactionUpdate'));*/
+        renderMW(objRepo, 'transactionUpdate'));
 
-    app.use('/logout',
+    app.get('/logout',
         logoutMW(objRepo),
         function (req, res, next) {
             return res.redirect('/');

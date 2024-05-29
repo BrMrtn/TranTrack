@@ -25,7 +25,7 @@
                     <td> <%= oneTransaction.category %> </td>
                     <td> <%= oneTransaction.comment %> </td>
                     <td><a href="/<%= user.id %>/<%= oneTransaction.id %>/del"><img src="img/trashcan.png" alt="trashcan"></a></td>
-                    <td><a href="/<%= user.id %>/<%= oneTransaction.id %>/update"><img src="img/pencil.png" alt="pencil"></a></td>
+                    <td><a href="/update/<%= user.id %>/<%= oneTransaction.id %>"><img src="img/pencil.png" alt="pencil"></a></td>
                 </tr>
             <% }); %>
         </table>

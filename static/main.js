@@ -17,16 +17,3 @@ document.getElementById('isExpense').addEventListener('change', function() {
         document.getElementById('o5').disabled = true;
     }
 });
-
-
-/*document.getElementById('isExpense').addEventListener('change', function() {
-    if(this.value === "0") {
-        document.getElementById('exCategory').style.display = "none";
-        document.getElementById('exCategory').value = '';
-        document.getElementById('inCategory').style.display = "block";
-    } else {
-        document.getElementById('inCategory').style.display = "none";
-        document.getElementById('inCategory').value = '';
-        document.getElementById('exCategory').style.display = "block";
-    }
-});*/
