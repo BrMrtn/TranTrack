@@ -16,6 +16,12 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.use((req, res, next) => {
+    res.locals.error = '';
+    next();
+});
+
+
 //Include routing
 require('./route/index')(app);
 

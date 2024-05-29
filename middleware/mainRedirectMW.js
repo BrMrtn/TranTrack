@@ -10,5 +10,4 @@ module.exports = function (objectrepository) {
             return res.redirect('/' + req.session.userid);
         }
     };
-  
 };
