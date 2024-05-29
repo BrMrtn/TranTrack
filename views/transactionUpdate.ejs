@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>TranTrack</title>
+    <link rel='stylesheet' type='text/css' href='css/main.css'>
+</head>
+<body>
+    <div class="transactionUpdate-container">
+        <h1 class="title">Tranzakció frissítése</h1>
+        <form method="POST" class="addTransaction">
+            <input type="date" id="date" name="date" placeholder="datum">
+            <input type="number" id="amount" name="amount" placeholder="osszeg">
+            <select name="isExpense" id="isExpense">
+                <option value="0" selected>income</option>
+                <option value="1">expense</option>
+            </select>
+            <!--csak akkor látszódik, ha expense-->
+            <select name="category" id="exCategory" style="display: none;">
+                <option value="" selected>-- kiadás típusa --</option>
+                <option value="szükséges">szükséges</option>
+                <option value="fontos">fontos</option>
+                <option value="opcionális">opcionális</option>
+            </select>
+            <!--csak akkor látszódik, ha income-->
+            <select name="category" id="inCategory">
+                <option value="" selected>-- bevétel típusa --</option>
+                <option value="munkabér">munkabér</option>
+                <option value="ajándék">ajándék</option>
+                <option value="kölcsön">kölcsön</option>
+            </select>
+            <input type="text" id="comment" name="comment">
+            <input type="submit" value="+" class="addTransactionButton">
+        </form>
+        <%- include('errormessage') %>
+    </div>
+<%- include('footer') %>

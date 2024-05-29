@@ -13,23 +13,25 @@ module.exports = function (objectrepository) {
 
         // Check if the request contains the necessary data
         if ((typeof req.body === 'undefined') ||
+            (typeof req.body.name === 'undefined') ||
             (typeof req.body.email === 'undefined') ||
             (typeof req.body.password === 'undefined')) {
             console.log("CheckRegistration - Not enough data!");
             return next();
         }
 
-        // Check if the user exists
         UserModel.findOne({
             email: req.body.email
         }, function (err, result) {
+            // Check if the user is already registered
             if (err || result !== null) {
                 res.locals.error = 'E-mail address is already registered!';
                 console.log("CheckRegistration - E-mail address is already registered!");
                 return next();
             }
 
-            if(req.body.password != req.body.password2) {       // There might be a problem here
+            // Check if the passwords match
+            if(req.body.password != req.body.password2) {
                 res.locals.error = 'Passwords do not match!';
                 console.log("CheckRegistration - Passwords do not match!");
                 return next();
@@ -37,6 +39,7 @@ module.exports = function (objectrepository) {
 
             // Create new user
             let newUser = new UserModel();
+            newUser.name = req.body.name;
             newUser.email = req.body.email;
             newUser.password = req.body.password;
             newUser.save(function (err) {

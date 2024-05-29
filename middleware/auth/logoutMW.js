@@ -3,8 +3,9 @@
  */
 module.exports = function(objectrepository) {
     return function(req, res, next) {
-        req.session.destroy(err => {
-            res.redirect('/');
+        req.session.destroy((err) => {
+            console.log("Logout - Session destroyed!");
+            return next();
         });
     };
 };

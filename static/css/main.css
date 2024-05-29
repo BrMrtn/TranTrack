@@ -1,3 +1,7 @@
+body{
+    font-family: Arial, sans-serif;
+}
+
 .index-container{
     width: 700px;
     height: 500px;
@@ -104,4 +108,45 @@ img{
     border: 1px solid darkred;
     padding: 10px;
     margin: 0 200px 10px 200px;
+}
+
+.expense{
+    font-size: xx-large;
+    font-weight: bolder;
+    color: darkred;
+}
+
+.income{
+    font-size: x-large;
+    font-weight: bolder;
+    color: darkgreen;
+}
+
+.expense_row{
+    color: darkred;
+}
+
+.income_row{
+    color: darkgreen;
+}
+
+.logout{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    margin: 20px;
+    padding: 15px;
+    border: solid black;
+    background-color: aliceblue;
+    border-radius: 15px;
+    font-size: medium;
+}
+
+.transactionUpdate-container{
+    width: 900px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 5px 5px 10px black;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }

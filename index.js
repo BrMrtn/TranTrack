@@ -21,6 +21,8 @@ app.use((req, res, next) => {
     next();
 });
 
+//Handle favicon requests
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 //Include routing
 require('./route/index')(app);
