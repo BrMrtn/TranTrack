@@ -1,9 +1,9 @@
-const requireOption = require('../requireOption');
-
 /**
  * Check if the user is registered.
  * If not, create a new user and redirect to /.
  */
+
+const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     let UserModel = requireOption(objectrepository, 'UserModel');

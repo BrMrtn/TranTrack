@@ -142,15 +142,6 @@ img{
     font-size: medium;
 }
 
-.transactionUpdate-container{
-    width: 900px;
-    margin: auto;
-    text-align: center;
-    box-shadow: 5px 5px 10px black;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
 .accountDeleteButton{
     position: absolute;
     top: 70px;

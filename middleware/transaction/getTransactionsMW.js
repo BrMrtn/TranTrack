@@ -9,7 +9,7 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
         // Check if the userid is set
-        if (typeof req.session.userid === 'undefined' || req.session.userid == null) {      //typeof res.locals.nagymama === 'undefined'
+        if (typeof req.session.userid === 'undefined' || req.session.userid == null) {
             console.log("getTransactions - No userid found in the session!");
             return next();
         }

@@ -11,8 +11,6 @@ const getTransactionsMW = require('../middleware/transaction/getTransactionsMW')
 const saveTransactionMW = require('../middleware/transaction/saveTransactionMW');
 const delUserMW = require('../middleware/user/delUserMW');
 const getUserMW = require('../middleware/user/getUserMW');
-const getUsersMW = require('../middleware/user/getUsersMW');
-const saveUserMW = require('../middleware/user/saveUserMW');
 
 const TransactionModel = require('../models/transaction');
 const UserModel = require('../models/user');

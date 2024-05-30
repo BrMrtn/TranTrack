@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static('static')); // __dirname + '/static' ?
+app.use(express.static('static'));
 
 app.use(session({
     secret: 'secret',
@@ -21,12 +21,13 @@ app.use((req, res, next) => {
     next();
 });
 
-//Handle favicon requests
+//Handle favicon requests - because I don't have a favicon
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 //Include routing
 require('./route/index')(app);
 
+//If something goes wrong
 app.use((err, req, res, next) => {
     res.end('There is a problem!');
     console.log(err);
