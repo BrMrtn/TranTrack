@@ -12,6 +12,7 @@ module.exports = function (objectrepository) {
 
         res.locals.transaction.remove((err) => {
             if (err) {
+                res.locals.error = 'Error occured while deleting the transaction!';
                 console.log("delTransaction - Error while deleting transaction from database!");
                 return next(err);
             }

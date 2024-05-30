@@ -9,13 +9,18 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
         // Check if the request contains the necessary data
-        if ((typeof req.body === 'undefined') || req.body == null ||
-            (typeof req.body.date === 'undefined') || req.body.date == '' ||
-            (typeof req.body.amount === 'undefined') || req.body.amount == '' ||
-            (typeof req.body.isExpense === 'undefined') || req.body.isExpense == '' ||
-            (typeof req.body.category === 'undefined') || req.body.category == '' ) { 
+        if ((typeof req.body === 'undefined') ||
+            (typeof req.body.date === 'undefined') ||
+            (typeof req.body.amount === 'undefined') ||
+            (typeof req.body.isExpense === 'undefined') ||
+            (typeof req.body.category === 'undefined') ){
             console.log("saveTransaction - Not enough data!");
-            console.log(req.body);
+            return next();
+        }
+
+        if (req.body.date == '' || req.body.amount == '' || req.body.category == '' ) {
+            res.locals.error = 'Not all necessary fields are filled!';
+            console.log("saveTransaction - Not enough data!");
             return next();
         }
 
@@ -36,6 +41,7 @@ module.exports = function (objectrepository) {
         // Save the transaction
         res.locals.transaction.save((err) => {
             if (err) {
+                res.locals.error = 'Error occured while saving the transaction!';
                 console.log("saveTransaction - Error while saving transaction!");
                 return next(err);
             }

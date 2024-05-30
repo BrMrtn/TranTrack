@@ -36,7 +36,7 @@ module.exports = function (app) {
             return res.redirect('/');
         });
 
-    app.use('/update/:userid/:transactionid',
+    app.use('/:userid/:transactionid/update',
         authMW(objRepo),
         getUserMW(objRepo),
         getTransactionMW(objRepo),

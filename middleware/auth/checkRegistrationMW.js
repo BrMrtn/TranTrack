@@ -15,7 +15,13 @@ module.exports = function (objectrepository) {
         if ((typeof req.body === 'undefined') ||
             (typeof req.body.name === 'undefined') ||
             (typeof req.body.email === 'undefined') ||
-            (typeof req.body.password === 'undefined')) {
+            (typeof req.body.password === 'undefined') ){
+            console.log("CheckRegistration - Not enough data!");
+            return next();
+        }
+
+        if (req.body.name == '' || req.body.email == '' || req.body.password == '') {
+            res.locals.error = 'You must fill in all fields!';
             console.log("CheckRegistration - Not enough data!");
             return next();
         }
