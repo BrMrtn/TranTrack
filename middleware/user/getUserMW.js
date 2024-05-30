@@ -8,11 +8,6 @@ module.exports = function (objectrepository) {
     const UserModel = requireOption(objectrepository, 'UserModel');
 
     return function (req, res, next) {
-        // Check if the userid param is set
-        if (typeof req.params.userid === 'undefined' || req.params.userid == null) {
-            return next();
-        }
-
         // Load the user from the database
         UserModel.findOne({
             _id: req.params.userid
