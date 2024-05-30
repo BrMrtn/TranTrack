@@ -7,7 +7,6 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     let UserModel = requireOption(objectrepository, 'UserModel');
-    console.log("model loaded");
 
     return function (req, res, next) {
 
@@ -16,13 +15,11 @@ module.exports = function (objectrepository) {
             (typeof req.body.name === 'undefined') ||
             (typeof req.body.email === 'undefined') ||
             (typeof req.body.password === 'undefined') ){
-            console.log("CheckRegistration - Not enough data!");
             return next();
         }
 
         if (req.body.name == '' || req.body.email == '' || req.body.password == '') {
             res.locals.error = 'You must fill in all fields!';
-            console.log("CheckRegistration - Not enough data!");
             return next();
         }
 
@@ -32,14 +29,12 @@ module.exports = function (objectrepository) {
             // Check if the user is already registered
             if (err || result !== null) {
                 res.locals.error = 'E-mail address is already registered!';
-                console.log("CheckRegistration - E-mail address is already registered!");
                 return next();
             }
 
             // Check if the passwords match
             if(req.body.password != req.body.password2) {
                 res.locals.error = 'Passwords do not match!';
-                console.log("CheckRegistration - Passwords do not match!");
                 return next();
             }
 
@@ -52,7 +47,6 @@ module.exports = function (objectrepository) {
                 if (err) {
                     return next(err);
                 }
-                console.log("CheckRegistration - saved");
 
                 // Redirect to /
                 return res.redirect('/');

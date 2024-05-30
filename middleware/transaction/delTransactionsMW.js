@@ -8,12 +8,10 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
         if (typeof req.session.userid === 'undefined') {
-            console.log("delTransactions - No useris found in the session!");
             return next();
         }
 
         if (typeof res.locals.transactions === 'undefined') {
-            console.log("delTransactions - No transactions found for the user!");
             return next();
         }
 
@@ -23,11 +21,9 @@ module.exports = function (objectrepository) {
         }, (err) => {
             if (err) {
                 res.locals.error = 'Error occured while deleting the transactions!';
-                console.log("delTransactions - Error while deleting transactions from database!");
                 return next(err);
             }
             
-            console.log("delTransactions - Transaction deleted from database!");
             return next();
         });
     };

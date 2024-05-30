@@ -14,19 +14,16 @@ module.exports = function (objectrepository) {
             (typeof req.body.amount === 'undefined') ||
             (typeof req.body.isExpense === 'undefined') ||
             (typeof req.body.category === 'undefined') ){
-            console.log("saveTransaction - Not enough data!");
             return next();
         }
 
         if (req.body.date == '' || req.body.amount == '' || req.body.category == '' ) {
             res.locals.error = 'Not all necessary fields are filled!';
-            console.log("saveTransaction - Not enough data!");
             return next();
         }
 
         // Check if the transaction is already set
         if (typeof res.locals.transaction === 'undefined') {
-            console.log("saveTransaction - Creating new transaction!");
             res.locals.transaction = new TransactionModel();
         }
 
@@ -42,11 +39,9 @@ module.exports = function (objectrepository) {
         res.locals.transaction.save((err) => {
             if (err) {
                 res.locals.error = 'Error occured while saving the transaction!';
-                console.log("saveTransaction - Error while saving transaction!");
                 return next(err);
             }
 
-            console.log("saveTransaction - Transaction saved!");
             return res.redirect('/' + req.session.userid);
         });
     };

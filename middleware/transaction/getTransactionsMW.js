@@ -10,7 +10,6 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         // Check if the userid is set
         if (typeof req.session.userid === 'undefined' || req.session.userid == null) {
-            console.log("getTransactions - No userid found in the session!");
             return next();
         }
 
@@ -20,12 +19,10 @@ module.exports = function (objectrepository) {
         }, (err, result) => {
             if (err) {
                 res.locals.error = 'Error occured while loading the transactions!';
-                console.log("getTransactions - Error while loading transactions from database!");
                 return next(err);
             }
 
             res.locals.transactions = result;
-            console.log("getTransactions - Transactions loaded from database!");
             return next();
         });
 
