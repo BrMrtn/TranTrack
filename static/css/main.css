@@ -130,7 +130,7 @@ img{
     color: darkgreen;
 }
 
-.logout{
+.floatingButton{
     position: absolute;
     top: 0;
     right: 10px;
@@ -149,4 +149,16 @@ img{
     box-shadow: 5px 5px 10px black;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.accountDeleteButton{
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    margin: 20px;
+    padding: 15px;
+    border: solid black;
+    background-color: rgb(250, 215, 218);
+    border-radius: 15px;
+    font-size: medium;
 }

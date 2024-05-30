@@ -16,6 +16,12 @@ module.exports = function (objectrepository) {
                 console.log("CheckLogin - Not enough data!");
             return next();
         }
+
+        if (req.body.email == '' || req.body.password == '') {
+            res.locals.error = 'You must fill in all fields!';
+            console.log("CheckLogin - Not enough data!");
+            return next();
+        }
         
         // Check if the user exists and the password is correct
         UserModel.findOne({

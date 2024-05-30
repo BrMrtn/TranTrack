@@ -7,22 +7,22 @@
                 value="<%= date.getFullYear() %>-<%= date.getMonth() > 8 ? date.getMonth()+1 : "0" + date.getMonth()  %>-<%= date.getDate() > 9 ? date.getDate() : "0" + date.getDate() %>">
             <input type="number" id="amount" name="amount" placeholder="osszeg" value="<%= transaction.amount %>">
             <select name="isExpense" id="isExpense">
-                <option value="0">bevétel</option>
+                <option value="0" <%= !transaction.isExpense ? "selected" : "" %>>bevétel</option>
                 <option value="1" <%= transaction.isExpense ? "selected" : "" %>>kiadás</option>
             </select>
             <select name="category" id="category">
-                <option value="">-- válassz kategóriát --</option>
-                <option id="o0" value="szükséges" <%= !transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "szükséges" ? "selected" : "" %>>szükséges</option>
-                <option id="o1" value="fontos" <%= !transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "fontos" ? "selected" : "" %>>fontos</option>
-                <option id="o2" value="opcionális" <%= !transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "opcionális" ? "selected" : "" %>>opcionális</option>
-                <option id="o3" value="munkabér" <%= transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "munkabér" ? "selected" : "" %>>munkabér</option>
-                <option id="o4" value="ajándék" <%= transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "ajándék" ? "selected" : "" %>>ajándék</option>
-                <option id="o5" value="kölcsön" <%= transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "kölcsön" ? "selected" : "" %>>kölcsön</option>
+                <option id="o0" value="">-- válassz kategóriát --</option>
+                <option id="o1" value="szükséges" <%= !transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "szükséges" ? "selected" : "" %>>szükséges</option>
+                <option id="o2" value="fontos" <%= !transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "fontos" ? "selected" : "" %>>fontos</option>
+                <option id="o3" value="opcionális" <%= !transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "opcionális" ? "selected" : "" %>>opcionális</option>
+                <option id="o4" value="munkabér" <%= transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "munkabér" ? "selected" : "" %>>munkabér</option>
+                <option id="o5" value="ajándék" <%= transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "ajándék" ? "selected" : "" %>>ajándék</option>
+                <option id="o6" value="kölcsön" <%= transaction.isExpense ? "disabled" : "" %> <%= transaction.category == "kölcsön" ? "selected" : "" %>>kölcsön</option>
             </select>
             <input type="text" id="comment" name="comment" value="<%= transaction.comment %>">
             <input type="submit" value="+" class="addTransactionButton">
         </form>
         <%- include('errormessage') %>
     </div>
-    <a href="/" class="logout">Vissza</a>
+    <a href="/" class="floatingButton">Vissza</a>
 <%- include('footer') %>

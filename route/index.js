@@ -5,6 +5,7 @@ const checkRegistrationMW = require('../middleware/auth/checkRegistrationMW');
 const logoutMW = require('../middleware/auth/logoutMW');
 const renderMW = require('../middleware/renderMW');
 const delTransactionMW = require('../middleware/transaction/delTransactionMW');
+const delTransactionsMW = require('../middleware/transaction/delTransactionsMW');
 const getTransactionMW = require('../middleware/transaction/getTransactionMW');
 const getTransactionsMW = require('../middleware/transaction/getTransactionsMW');
 const saveTransactionMW = require('../middleware/transaction/saveTransactionMW');
@@ -27,6 +28,12 @@ module.exports = function (app) {
         checkRegistrationMW(objRepo),
         renderMW(objRepo, 'register'));
 
+    app.get('/logout',
+        logoutMW(objRepo),
+        function (req, res, next) {
+            return res.redirect('/');
+        });
+
     app.get('/:userid/:transactionid/del',
         authMW(objRepo),
         getUserMW(objRepo),
@@ -43,7 +50,12 @@ module.exports = function (app) {
         saveTransactionMW(objRepo),
         renderMW(objRepo, 'transactionUpdate'));
 
-    app.get('/logout',
+    app.use('/:userid/del',
+        authMW(objRepo),
+        getUserMW(objRepo),
+        getTransactionsMW(objRepo),
+        delTransactionsMW(objRepo),
+        delUserMW(objRepo),
         logoutMW(objRepo),
         function (req, res, next) {
             return res.redirect('/');
@@ -55,13 +67,6 @@ module.exports = function (app) {
         getTransactionsMW(objRepo),
         saveTransactionMW(objRepo),
         renderMW(objRepo, 'transactions'));
-    
-    app.use('/admin',
-        authMW(objRepo),
-        getUsersMW(objRepo),
-        delUserMW(objRepo),
-        saveUserMW(objRepo),
-        renderMW(objRepo, 'bankview'));
 
     app.use('/',
         inverseAuthMW(objRepo),

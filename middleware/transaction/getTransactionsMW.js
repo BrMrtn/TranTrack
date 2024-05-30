@@ -19,6 +19,7 @@ module.exports = function (objectrepository) {
             _userid: res.locals.user._id
         }, (err, result) => {
             if (err) {
+                res.locals.error = 'Error occured while loading the transactions!';
                 console.log("getTransactions - Error while loading transactions from database!");
                 return next(err);
             }

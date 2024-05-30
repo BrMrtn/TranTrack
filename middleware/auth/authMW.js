@@ -4,7 +4,7 @@
 
 module.exports = function (objectRepository) {
     return function (req, res, next) {
-        if (typeof req.session.userid === 'undefined') {
+        if (typeof req.session === 'undefined' || typeof req.session.userid === 'undefined') {
             console.log("Auth - User is not logged in!");
             return res.redirect('/');
         }
